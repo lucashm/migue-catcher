@@ -26,7 +26,7 @@ export const getCommits = () => {
 
 const getInfo = (callback, pageNumber, repo) => {
     
-    axios.get(`https://api.github.com/repos/${repo}?page=${pageNumber}`)
+    axios.get(`https://api.github.com/repos/${repo}/commits?page=${pageNumber}`)
         .then(function (response) {
             callback(response);
         })
@@ -63,7 +63,7 @@ const filterMessages = (response) => {
                     }
                     let signedEmail = commitMessage.substring(count, otherCount);
                     for (let j = 0; j < studentsList.length; j++) {
-                        if (studentsList[j].email.toString().toLowerCase() == signedEmail.toString().toLowerCase()) {
+                        if (studentsList[j].email.toLowerCase() == signedEmail.toLowerCase()) {
                             studentsList[j].score++;
                         }
                     }

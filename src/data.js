@@ -1,5 +1,5 @@
 export let repos = [
-    "fga-gpp-mds/2017.2-MerendaMais/commits"
+    "fga-gpp-mds/2017.2-MerendaMais"
 ]
 
 export let studentsList = [
