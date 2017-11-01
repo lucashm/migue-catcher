@@ -1,50 +1,16 @@
 import axios from 'axios';
-
-
-let studentsList = [
-    //merenda+
-    // {
-    //     userName: "gabrielademoraes",
-    //     score: 0,
-    //     email: "gabrielademoraes10@gmail.com"
-    // },
-    {
-        userName: "kahcosta",
-        score: 0,
-        email: "kamillacosta.unb@gmail.com"
-
-    },
-    {
-        userName: "lucaslermen",
-        score: 0,
-        email: "lucas.arthur.lermen@gmail.com"
-    },
-    {
-        userName: "lucaspenido",
-        score: 0,
-        email: "lpenidoa@me.com"
-    },
-    {
-        userName: "mlfaa",
-        score: 0,
-        email: "mlfaa@hotmail.com"
-    },
-    {
-        userName: "miguel-alves",
-        score: 0,
-        email: "miguelhenriquealvesdeoliveira@gmail.com"
-    }
-]
+import {consoleForm, startButton, baseList} from './htmlRendering';
+import {studentsList, repos} from './data';
 
 let pageCounter = 1;
 let repoCounter = "";
-let repos = [
-    "fga-gpp-mds/2017.2-MerendaMais/commits"
-]
 
-const getCommits = () => {
+export const getCommits = () => {
+    let waiting = document.getElementById("waitingDiv");
+    waiting.innerHTML = "Carregando...";
     const callback = (response) => {
         if (response.data.length === 0) {
+            waiting.innerHTML = "Carregado com sucesso!";
             updateList();
         } else {
             pageCounter++;
@@ -59,12 +25,13 @@ const getCommits = () => {
 }
 
 const getInfo = (callback, pageNumber, repo) => {
+    
     axios.get(`https://api.github.com/repos/${repo}?page=${pageNumber}`)
         .then(function (response) {
-            callback(response)
+            callback(response);
         })
         .catch(function (error) {
-            console.log(error);
+            waiting.innerHTML = "Houve um problema, verifique sua conexão...";
         });
 }
 
@@ -76,7 +43,7 @@ const updateList = () => {
     for (let student in sortedStudentsList) {
         let single = document.getElementById(student);
         single.innerHTML = sortedStudentsList[student].userName
-            + " - " + sortedStudentsList[student].score + " signed-off's";
+            + " - " + sortedStudentsList[student].score;
     }
 }
 
@@ -108,73 +75,6 @@ const filterMessages = (response) => {
 
 }
 
-
-const startButton = () => {
-    let button = document.createElement("button")
-    button.innerHTML = "Start!";
-    button.onclick = () => getCommits();
-    return button;
-}
-
-const baseList = () => {
-    let element = document.createElement("div");
-    let list = document.createElement("ul");
-    list.id = "mainList";
-    for (let student in studentsList) {
-        let single = document.createElement("li");
-        single.id = student;
-        single.innerHTML = studentsList[student].userName
-            + " - " + studentsList[student].score + " signed-off's";
-        list.appendChild(single);
-    }
-    element.appendChild(list);
-    document.body.appendChild(element);
-
-    return element;
-}
-
-const consoleForm = () => {
-    let form = document.createElement("div");
-    let username = document.createElement("input");
-    username.id = "username";
-    username.placeholder = "username";
-    let email = document.createElement("input");
-    email.id = "email";
-    email.placeholder = "email";
-    let btn = document.createElement("button");
-    btn.innerHTML = "send!";
-    btn.onclick = () => newRegister(username.value, email.value);
-
-    form.appendChild(username);
-    form.appendChild(email);
-    form.appendChild(btn);
-
-    return form;
-}
-
-const newRegister = (username, email) => {
-    let toAppend = {
-        userName: username,
-        score: 0,
-        email: email
-    }
-
-    addOne(toAppend);
-}
-
-const addOne = (toAppend) => {
-    studentsList.push(toAppend);
-    let list = document.getElementById("mainList");
-    let newElement = document.createElement("li");
-    newElement.id = studentsList.length - 1;
-    newElement.innerHTML = toAppend.userName
-        + " - " + toAppend.score + " signed-off's";
-    list.appendChild(newElement);
-}
-
-document.body.appendChild(startButton());
-document.body.appendChild(baseList());
-document.body.appendChild(consoleForm());
 // window.onload = getCommits();
 
 
