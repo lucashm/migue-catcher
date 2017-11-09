@@ -1,38 +1,35 @@
 export let repos = [
-    "fga-gpp-mds/2017.2-MerendaMais"
+    "fga-gpp-mds/2017.2-MerendaMais", 
+    'fga-gpp-mds/2017.2-QueroCultura',
+    'fga-gpp-mds/Falko-2017.2-BackEnd',
+    'fga-gpp-mds/2017.2-Classificacao-de-Risco-Pediatrico',
+    'fga-gpp-mds/2017.2-Receituario-Medico',
+    'fga-gpp-mds/2017.2-AjudaConselheiro-Frontend',
+    'fga-gpp-mds/2017.2-SiGI-Op_API',
+    'fga-gpp-mds/fisCAE-2017-2',
+    'fga-gpp-mds/Falko-2017.2-FrontEnd',
+    'fga-gpp-mds/2017.2-SiGI-Op',
+    'fga-gpp-mds/2017.2-DepuTinder-API',
+    'fga-gpp-mds/2017.2-DepuTinder',
+    'fga-gpp-mds/2017.2-MerendaMais-Backend',
+    'fga-gpp-mds/2017.2-AjudaConselheiro-Backend'
 ]
 
-export let studentsList = [
-    //merenda+
-    {
-        userName: "gabrielademoraes",
-        score: 0,
-        email: "gabrielademoraes10@gmail.com"
-    },
-    {
-        userName: "kahcosta",
-        score: 0,
-        email: "kamillacosta.unb@gmail.com"
 
-    },
-    {
-        userName: "lucaslermen",
-        score: 0,
-        email: "lucas.arthur.lermen@gmail.com"
-    },
-    {
-        userName: "lucaspenido",
-        score: 0,
-        email: "lpenidoa@me.com"
-    },
-    {
-        userName: "mlfaa",
-        score: 0,
-        email: "mlfaa@hotmail.com"
-    },
-    {
-        userName: "miguel-alves",
-        score: 0,
-        email: "miguelhenriquealvesdeoliveira@gmail.com"
-    }
+export let options = [
+    "Todos os repositórios",
+    "fga-gpp-mds/2017.2-MerendaMais", 
+    'fga-gpp-mds/2017.2-QueroCultura',
+    'fga-gpp-mds/Falko-2017.2-BackEnd',
+    'fga-gpp-mds/2017.2-Classificacao-de-Risco-Pediatrico',
+    'fga-gpp-mds/2017.2-Receituario-Medico',
+    'fga-gpp-mds/2017.2-AjudaConselheiro-Frontend',
+    'fga-gpp-mds/2017.2-SiGI-Op_API',
+    'fga-gpp-mds/fisCAE-2017-2',
+    'fga-gpp-mds/Falko-2017.2-FrontEnd',
+    'fga-gpp-mds/2017.2-SiGI-Op',
+    'fga-gpp-mds/2017.2-DepuTinder-API',
+    'fga-gpp-mds/2017.2-DepuTinder',
+    'fga-gpp-mds/2017.2-MerendaMais-Backend',
+    'fga-gpp-mds/2017.2-AjudaConselheiro-Backend'
 ]

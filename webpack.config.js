@@ -2,7 +2,9 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: './src/index.js'
+        app: './src/index.js',
+        data: './src/data.js',
+        aux: './src/htmlRendering.js'
     },
     devServer: {
         contentBase: './dist'
