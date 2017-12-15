@@ -76,8 +76,7 @@ export const getCommits = () => {
 }
 
 const getSingleInfo = (singleCallback, pageNumber) => {
-    axios.get(`https://api.github.com/repos/${actualOption}/commits?page=${pageNumber}`,
-        { headers: { "Authorization": "token 41db5234bf8ec83cd17749ac239c2ce7cd3b53fa" } })
+    axios.get(`https://api.github.com/repos/${actualOption}/commits?page=${pageNumber}`)
         .then(function (response) {
             // console.log(response);
             singleCallback(response);
@@ -89,8 +88,7 @@ const getSingleInfo = (singleCallback, pageNumber) => {
 
 
 const getInfo = (callback, pageNumber, repoCounter) => {
-    axios.get(`https://api.github.com/repos/${repos[repoCounter]}/commits?page=${pageNumber}`,
-        { headers: { "Authorization": "token 41db5234bf8ec83cd17749ac239c2ce7cd3b53fa" } })
+    axios.get(`https://api.github.com/repos/${repos[repoCounter]}/commits?page=${pageNumber}`)
         .then(function (response) {
             // console.log(response);
             callback(response, repoCounter);
